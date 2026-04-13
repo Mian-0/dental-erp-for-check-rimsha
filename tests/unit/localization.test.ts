@@ -9,44 +9,44 @@ vi.mock('@prisma/client', () => ({
   DiscountType: { PERCENTAGE: 'PERCENTAGE', FIXED: 'FIXED' },
 }))
 
-import { formatCurrency, formatDate, formatPhone, validateAadhar, validateIndianPhone, validateGSTIN } from '@/lib/utils'
+import { formatCurrency, formatDate, formatPhone, validateAadhar, validatePakistannPhone, validateGSTIN } from '@/lib/utils'
 import {
   gstConfig, calculateGST, discountTypeConfig,
   formatCurrency as billingFormatCurrency,
   numberToWords, formatDateTime as billingFormatDateTime
 } from '@/lib/billing-utils'
 
-describe('Section 10.1 — Current Locale (India)', () => {
+describe('Section 10.1 — Current Locale (Pakistan)', () => {
 
   // ─── Currency Display ───────────────────────────────────────────────
 
   describe('Currency Display', () => {
-    it('formatCurrency from utils displays ₹ symbol', () => {
+    it('formatCurrency from utils displays PKR  symbol', () => {
       const result = formatCurrency(500)
-      expect(result).toContain('₹')
+      expect(result).toContain('PKR ')
     })
 
-    it('billingFormatCurrency displays ₹ with 2 decimal places', () => {
+    it('billingFormatCurrency displays PKR  with 2 decimal places', () => {
       const result = billingFormatCurrency(500)
-      expect(result).toContain('₹')
+      expect(result).toContain('PKR ')
       expect(result).toMatch(/500\.00/)
     })
 
-    it('uses Indian number formatting — lakhs (1,00,000 not 100,000)', () => {
+    it('uses Pakistann number formatting — lakhs (1,00,000 not 100,000)', () => {
       const result = formatCurrency(100000)
       // en-IN formats 100000 as 1,00,000
       expect(result).toContain('1,00,000')
     })
 
-    it('uses Indian number formatting — crores', () => {
+    it('uses Pakistann number formatting — crores', () => {
       const result = formatCurrency(10000000)
       // en-IN formats 10000000 as 1,00,00,000
       expect(result).toContain('1,00,00,000')
     })
 
-    it('zero amount renders as ₹0', () => {
+    it('zero amount renders as PKR 0', () => {
       const result = formatCurrency(0)
-      expect(result).toContain('₹')
+      expect(result).toContain('PKR ')
       expect(result).toMatch(/0/)
     })
 
@@ -58,12 +58,12 @@ describe('Section 10.1 — Current Locale (India)', () => {
 
     it('negative amounts are handled', () => {
       const result = formatCurrency(-1500)
-      expect(result).toContain('₹')
+      expect(result).toContain('PKR ')
       expect(result).toContain('1,500')
     })
 
-    it('discountTypeConfig.FIXED.symbol is ₹', () => {
-      expect(discountTypeConfig.FIXED.symbol).toBe('₹')
+    it('discountTypeConfig.FIXED.symbol is PKR ', () => {
+      expect(discountTypeConfig.FIXED.symbol).toBe('PKR ')
     })
   })
 
@@ -114,35 +114,35 @@ describe('Section 10.1 — Current Locale (India)', () => {
       expect(result).toBe('+91 98765 43210')
     })
 
-    it('validateIndianPhone accepts valid numbers starting with 6', () => {
-      expect(validateIndianPhone('6123456789')).toBe(true)
+    it('validatePakistannPhone accepts valid numbers starting with 6', () => {
+      expect(validatePakistannPhone('6123456789')).toBe(true)
     })
 
-    it('validateIndianPhone accepts valid numbers starting with 7', () => {
-      expect(validateIndianPhone('7123456789')).toBe(true)
+    it('validatePakistannPhone accepts valid numbers starting with 7', () => {
+      expect(validatePakistannPhone('7123456789')).toBe(true)
     })
 
-    it('validateIndianPhone accepts valid numbers starting with 8', () => {
-      expect(validateIndianPhone('8123456789')).toBe(true)
+    it('validatePakistannPhone accepts valid numbers starting with 8', () => {
+      expect(validatePakistannPhone('8123456789')).toBe(true)
     })
 
-    it('validateIndianPhone accepts valid numbers starting with 9', () => {
-      expect(validateIndianPhone('9123456789')).toBe(true)
+    it('validatePakistannPhone accepts valid numbers starting with 9', () => {
+      expect(validatePakistannPhone('9123456789')).toBe(true)
     })
 
-    it('validateIndianPhone rejects numbers starting with 0-5', () => {
-      expect(validateIndianPhone('0123456789')).toBe(false)
-      expect(validateIndianPhone('1234567890')).toBe(false)
-      expect(validateIndianPhone('2345678901')).toBe(false)
-      expect(validateIndianPhone('3456789012')).toBe(false)
-      expect(validateIndianPhone('4567890123')).toBe(false)
-      expect(validateIndianPhone('5678901234')).toBe(false)
+    it('validatePakistannPhone rejects numbers starting with 0-5', () => {
+      expect(validatePakistannPhone('0123456789')).toBe(false)
+      expect(validatePakistannPhone('1234567890')).toBe(false)
+      expect(validatePakistannPhone('2345678901')).toBe(false)
+      expect(validatePakistannPhone('3456789012')).toBe(false)
+      expect(validatePakistannPhone('4567890123')).toBe(false)
+      expect(validatePakistannPhone('5678901234')).toBe(false)
     })
 
-    it('validateIndianPhone rejects wrong length', () => {
-      expect(validateIndianPhone('98765')).toBe(false)
-      expect(validateIndianPhone('987654321')).toBe(false) // 9 digits
-      expect(validateIndianPhone('98765432101')).toBe(false) // 11 digits
+    it('validatePakistannPhone rejects wrong length', () => {
+      expect(validatePakistannPhone('98765')).toBe(false)
+      expect(validatePakistannPhone('987654321')).toBe(false) // 9 digits
+      expect(validatePakistannPhone('98765432101')).toBe(false) // 11 digits
     })
   })
 
@@ -162,7 +162,7 @@ describe('Section 10.1 — Current Locale (India)', () => {
       expect(result.grandTotal).toBe(1180)
     })
 
-    it('GST is 18% total (standard Indian goods & services tax)', () => {
+    it('GST is 18% total (standard Pakistann goods & services tax)', () => {
       expect(gstConfig.cgstRate + gstConfig.sgstRate).toBe(18)
       expect(gstConfig.igstRate).toBe(18)
     })
@@ -192,9 +192,9 @@ describe('Section 10.1 — Current Locale (India)', () => {
     })
   })
 
-  // ─── Number to Words (Indian) ───────────────────────────────────────
+  // ─── Number to Words (Pakistann) ───────────────────────────────────────
 
-  describe('Number to Words (Indian)', () => {
+  describe('Number to Words (Pakistann)', () => {
     it('numberToWords(1) returns "One Rupees Only"', () => {
       expect(numberToWords(1)).toBe('One Rupees Only')
     })
@@ -229,9 +229,9 @@ describe('Section 10.1 — Current Locale (India)', () => {
     })
 
     it('accepts valid GSTIN from different states', () => {
-      // State code 07 = Delhi
+      // State code 07 = Islamabad
       expect(validateGSTIN('07AAPFU0939F1ZV')).toBe(true)
-      // State code 33 = Tamil Nadu
+      // State code 33 = Punjab
       expect(validateGSTIN('33AAPFU0939F1ZV')).toBe(true)
     })
 

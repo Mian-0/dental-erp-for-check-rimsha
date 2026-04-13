@@ -56,7 +56,7 @@ export async function GET(req: Request) {
       if (daysOverdue >= 21) {
         tier = "tier4"
         notifyRole = "ADMIN"
-        message = `ESCALATION: Invoice ${invoice.invoiceNo} for ${invoice.patient.firstName} ${invoice.patient.lastName} is ${daysOverdue} days overdue (₹${Number(invoice.balanceAmount).toLocaleString("en-IN")}). Requires manager attention.`
+        message = `ESCALATION: Invoice ${invoice.invoiceNo} for ${invoice.patient.firstName} ${invoice.patient.lastName} is ${daysOverdue} days overdue (PKR ${Number(invoice.balanceAmount).toLocaleString("en-IN")}). Requires manager attention.`
       } else if (daysOverdue >= 14) {
         tier = "tier3"
         notifyRole = "ACCOUNTANT"
@@ -133,7 +133,7 @@ export async function GET(req: Request) {
                 hospitalId: hospital.id,
                 userId: accountant.id,
                 title: "Installment Due Soon",
-                message: `Payment plan installment #${schedule.installmentNo} for ${plan.patient.firstName} ${plan.patient.lastName} (Invoice ${plan.invoice.invoiceNo}) — ₹${Number(schedule.amount).toLocaleString("en-IN")} due in 3 days.`,
+                message: `Payment plan installment #${schedule.installmentNo} for ${plan.patient.firstName} ${plan.patient.lastName} (Invoice ${plan.invoice.invoiceNo}) — PKR ${Number(schedule.amount).toLocaleString("en-IN")} due in 3 days.`,
                 type: "PAYMENT",
                 entityType: "PaymentPlan",
                 entityId: plan.id,
@@ -155,7 +155,7 @@ export async function GET(req: Request) {
                 hospitalId: hospital.id,
                 userId: accountant.id,
                 title: "Installment Due Today",
-                message: `Payment plan installment #${schedule.installmentNo} for ${plan.patient.firstName} ${plan.patient.lastName} (Invoice ${plan.invoice.invoiceNo}) — ₹${Number(schedule.amount).toLocaleString("en-IN")} is due today.`,
+                message: `Payment plan installment #${schedule.installmentNo} for ${plan.patient.firstName} ${plan.patient.lastName} (Invoice ${plan.invoice.invoiceNo}) — PKR ${Number(schedule.amount).toLocaleString("en-IN")} is due today.`,
                 type: "PAYMENT",
                 entityType: "PaymentPlan",
                 entityId: plan.id,
@@ -183,7 +183,7 @@ export async function GET(req: Request) {
                 hospitalId: hospital.id,
                 userId: admin.id,
                 title: "Installment Overdue",
-                message: `Payment plan installment #${schedule.installmentNo} for ${plan.patient.firstName} ${plan.patient.lastName} (Invoice ${plan.invoice.invoiceNo}) — ₹${Number(schedule.amount).toLocaleString("en-IN")} is ${daysDiff} days overdue.`,
+                message: `Payment plan installment #${schedule.installmentNo} for ${plan.patient.firstName} ${plan.patient.lastName} (Invoice ${plan.invoice.invoiceNo}) — PKR ${Number(schedule.amount).toLocaleString("en-IN")} is ${daysDiff} days overdue.`,
                 type: "PAYMENT",
                 entityType: "PaymentPlan",
                 entityId: plan.id,

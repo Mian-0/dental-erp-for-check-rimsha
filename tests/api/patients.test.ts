@@ -77,7 +77,7 @@ describe('Patients API - GET /api/patients', () => {
         gender: 'MALE',
         age: 35,
         bloodGroup: 'O+',
-        city: 'Mumbai',
+        city: 'Lahore',
       },
     ]
 

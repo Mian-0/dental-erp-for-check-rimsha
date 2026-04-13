@@ -40,7 +40,7 @@ export default function NewStaffPage() {
     gender: "",
     address: "",
     city: "",
-    state: "Tamil Nadu",
+    state: "Punjab",
     pincode: "",
 
     // Documents
@@ -281,7 +281,7 @@ export default function NewStaffPage() {
                     id="city"
                     value={formData.city}
                     onChange={(e) => handleChange("city", e.target.value)}
-                    placeholder="Chennai"
+                    placeholder="Karachi"
                   />
                 </div>
                 <div className="space-y-2">
@@ -290,7 +290,7 @@ export default function NewStaffPage() {
                     id="state"
                     value={formData.state}
                     onChange={(e) => handleChange("state", e.target.value)}
-                    placeholder="Tamil Nadu"
+                    placeholder="Punjab"
                   />
                 </div>
                 <div className="space-y-2">
@@ -425,7 +425,7 @@ export default function NewStaffPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="salary">Monthly Salary (₹)</Label>
+                <Label htmlFor="salary">Monthly Salary (PKR )</Label>
                 <Input
                   id="salary"
                   type="number"

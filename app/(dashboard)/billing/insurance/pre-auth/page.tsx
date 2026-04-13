@@ -40,7 +40,7 @@ import {
   CheckCircle,
   XCircle,
   AlertTriangle,
-  IndianRupee,
+  PakistannRupee,
 } from "lucide-react"
 import { formatCurrency, formatDate } from "@/lib/billing-utils"
 

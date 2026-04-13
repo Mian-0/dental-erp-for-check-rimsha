@@ -94,8 +94,8 @@ const clinicData = (overrides = {}) => ({
     email: 'dev@dental.com',
     website: 'https://demo-dental.com',
     address: '123 Main St',
-    city: 'Chennai',
-    state: 'Tamil Nadu',
+    city: 'Karachi',
+    state: 'Punjab',
     pincode: '600001',
     slug: 'dr-dev-dental',
     logo: null,
@@ -170,7 +170,7 @@ describe('ClinicSettingsPage', () => {
       expect(screen.getByDisplayValue('9876543210')).toBeInTheDocument()
       expect(screen.getByDisplayValue('dev@dental.com')).toBeInTheDocument()
       expect(screen.getByDisplayValue('123 Main St')).toBeInTheDocument()
-      expect(screen.getByDisplayValue('Chennai')).toBeInTheDocument()
+      expect(screen.getByDisplayValue('Karachi')).toBeInTheDocument()
       expect(screen.getByDisplayValue('REG001')).toBeInTheDocument()
     })
 

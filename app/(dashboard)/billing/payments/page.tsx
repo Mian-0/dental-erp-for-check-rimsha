@@ -36,7 +36,7 @@ import {
   MoreHorizontal,
   Eye,
   RotateCcw,
-  IndianRupee,
+  PakistannRupee,
 } from "lucide-react"
 import {
   DropdownMenu,
@@ -201,7 +201,7 @@ export default function PaymentsPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Received</CardTitle>
-            <IndianRupee className="h-4 w-4 text-muted-foreground" />
+            <PakistannRupee className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             {loading ? (
@@ -233,7 +233,7 @@ export default function PaymentsPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Net Collection</CardTitle>
-            <IndianRupee className="h-4 w-4 text-muted-foreground" />
+            <PakistannRupee className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             {loading ? (

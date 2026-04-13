@@ -162,7 +162,7 @@ describe('parseDate', () => {
     expect(d!.getDate()).toBe(17)
   })
 
-  it('parses DD/MM/YYYY (Indian format)', () => {
+  it('parses DD/MM/YYYY (Pakistann format)', () => {
     const d = parseDate('17/02/2025')
     expect(d).toBeTruthy()
     expect(d!.getFullYear()).toBe(2025)
@@ -255,7 +255,7 @@ describe('coerceValue', () => {
 
   it('strips currency symbols from decimals', () => {
     const field: FieldDefinition = { name: 'amount', type: 'decimal', required: false, description: 'test' }
-    const result = coerceValue('₹1,500.50', field)
+    const result = coerceValue('PKR 1,500.50', field)
     expect(result.value).toBe(1500.50)
   })
 

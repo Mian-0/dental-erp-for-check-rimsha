@@ -243,20 +243,20 @@ async function generatePDFReport(type: string, data: any, dateRange: string, hos
   ${type === 'financial' ? `
     <h2>Financial Overview</h2>
     <table>
-      <tr><td class="metric">Total Revenue</td><td class="value">₹${data.totalRevenue.toFixed(2)}</td></tr>
-      <tr><td class="metric">Total Expenses</td><td class="value">₹${data.totalExpenses.toFixed(2)}</td></tr>
+      <tr><td class="metric">Total Revenue</td><td class="value">PKR ${data.totalRevenue.toFixed(2)}</td></tr>
+      <tr><td class="metric">Total Expenses</td><td class="value">PKR ${data.totalExpenses.toFixed(2)}</td></tr>
       <tr><td class="metric">Profit Margin</td><td class="value">${data.profitMargin.toFixed(2)}%</td></tr>
-      <tr><td class="metric">Avg. Bill Value</td><td class="value">₹${data.avgBillValue.toFixed(2)}</td></tr>
+      <tr><td class="metric">Avg. Bill Value</td><td class="value">PKR ${data.avgBillValue.toFixed(2)}</td></tr>
       <tr><td class="metric">Collection Efficiency</td><td class="value">${data.collectionEfficiency.toFixed(2)}%</td></tr>
-      <tr><td class="metric">Outstanding Amount</td><td class="value">₹${data.outstandingAmount.toFixed(2)}</td></tr>
+      <tr><td class="metric">Outstanding Amount</td><td class="value">PKR ${data.outstandingAmount.toFixed(2)}</td></tr>
     </table>
 
     ${data.paymentMethodBreakdown.length > 0 ? `
       <h2>Payment Methods</h2>
       <table>
-        <tr><th>Method</th><th>Amount (₹)</th><th>Percentage</th></tr>
+        <tr><th>Method</th><th>Amount (PKR )</th><th>Percentage</th></tr>
         ${data.paymentMethodBreakdown.map((m: any) => `
-          <tr><td>${m.method}</td><td>₹${m.amount.toFixed(2)}</td><td>${m.percentage.toFixed(2)}%</td></tr>
+          <tr><td>${m.method}</td><td>PKR ${m.amount.toFixed(2)}</td><td>${m.percentage.toFixed(2)}%</td></tr>
         `).join('')}
       </table>
     ` : ''}
@@ -279,9 +279,9 @@ async function generatePDFReport(type: string, data: any, dateRange: string, hos
     ${data.staffProductivity.length > 0 ? `
       <h2>Staff Productivity</h2>
       <table>
-        <tr><th>Staff</th><th>Role</th><th>Appointments</th><th>Treatments</th><th>Revenue (₹)</th></tr>
+        <tr><th>Staff</th><th>Role</th><th>Appointments</th><th>Treatments</th><th>Revenue (PKR )</th></tr>
         ${data.staffProductivity.map((s: any) => `
-          <tr><td>${s.name}</td><td>${s.role}</td><td>${s.appointmentsHandled}</td><td>${s.treatmentsCompleted}</td><td>₹${s.revenue.toFixed(2)}</td></tr>
+          <tr><td>${s.name}</td><td>${s.role}</td><td>${s.appointmentsHandled}</td><td>${s.treatmentsCompleted}</td><td>PKR ${s.revenue.toFixed(2)}</td></tr>
         `).join('')}
       </table>
     ` : ''}

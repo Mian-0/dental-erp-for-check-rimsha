@@ -135,10 +135,10 @@ describe('TemplateService - replaceVariables', () => {
 
   it('handles currency symbols', () => {
     const result = templateService.replaceVariables(
-      'Amount: ₹{{invoiceAmount}}',
+      'Amount: PKR {{invoiceAmount}}',
       { invoiceAmount: '5,000' }
     )
-    expect(result).toBe('Amount: ₹5,000')
+    expect(result).toBe('Amount: PKR 5,000')
   })
 
   it('handles empty template', () => {

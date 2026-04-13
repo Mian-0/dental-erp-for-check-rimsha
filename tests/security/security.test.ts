@@ -402,31 +402,31 @@ describe('Security — Input Validation & Injection', () => {
   })
 
   describe('Phone Number Validation', () => {
-    let validateIndianPhone: any
+    let validatePakistannPhone: any
 
     beforeEach(async () => {
       const mod = await import('@/lib/utils')
-      validateIndianPhone = mod.validateIndianPhone
+      validatePakistannPhone = mod.validatePakistannPhone
     })
 
-    it('accepts valid 10-digit Indian phone number', () => {
-      expect(validateIndianPhone('9876543210')).toBe(true)
+    it('accepts valid 10-digit Pakistann phone number', () => {
+      expect(validatePakistannPhone('9876543210')).toBe(true)
     })
 
     it('accepts with +91 prefix', () => {
-      expect(validateIndianPhone('+919876543210')).toBe(true)
+      expect(validatePakistannPhone('+919876543210')).toBe(true)
     })
 
     it('rejects number with less than 10 digits', () => {
-      expect(validateIndianPhone('98765')).toBe(false)
+      expect(validatePakistannPhone('98765')).toBe(false)
     })
 
     it('rejects number with more than 10 digits', () => {
-      expect(validateIndianPhone('98765432101')).toBe(false)
+      expect(validatePakistannPhone('98765432101')).toBe(false)
     })
 
     it('rejects letters in phone number', () => {
-      expect(validateIndianPhone('98765abcde')).toBe(false)
+      expect(validatePakistannPhone('98765abcde')).toBe(false)
     })
   })
 

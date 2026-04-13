@@ -138,12 +138,12 @@ describe('Billing Utils - formatCurrency', () => {
   it('should format positive amounts in INR', () => {
     const result = formatCurrency(1234.56)
     expect(result).toContain('1,234.56')
-    expect(result).toContain('₹')
+    expect(result).toContain('PKR ')
   })
 
   it('should handle null/undefined', () => {
-    expect(formatCurrency(null)).toBe('₹0.00')
-    expect(formatCurrency(undefined)).toBe('₹0.00')
+    expect(formatCurrency(null)).toBe('PKR 0.00')
+    expect(formatCurrency(undefined)).toBe('PKR 0.00')
   })
 
   it('should handle string amounts', () => {
@@ -151,7 +151,7 @@ describe('Billing Utils - formatCurrency', () => {
   })
 
   it('should handle invalid string amounts', () => {
-    expect(formatCurrency('invalid')).toBe('₹0.00')
+    expect(formatCurrency('invalid')).toBe('PKR 0.00')
   })
 
   it('should format zero correctly', () => {
@@ -322,17 +322,17 @@ describe('Billing Utils - numberToWords', () => {
     expect(numberToWords(999)).toBe('Nine Hundred Ninety Nine Rupees Only')
   })
 
-  it('should convert thousands (Indian format)', () => {
+  it('should convert thousands (Pakistann format)', () => {
     expect(numberToWords(1000)).toBe('One Thousand Rupees Only')
     expect(numberToWords(50000)).toBe('Fifty Thousand Rupees Only')
   })
 
-  it('should convert lakhs (Indian format)', () => {
+  it('should convert lakhs (Pakistann format)', () => {
     expect(numberToWords(100000)).toBe('One Lakh Rupees Only')
     expect(numberToWords(500000)).toBe('Five Lakh Rupees Only')
   })
 
-  it('should convert crores (Indian format)', () => {
+  it('should convert crores (Pakistann format)', () => {
     expect(numberToWords(10000000)).toBe('One Crore Rupees Only')
   })
 

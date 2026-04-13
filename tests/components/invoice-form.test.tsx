@@ -20,7 +20,7 @@ vi.mock('@/lib/utils', () => ({
 }))
 
 vi.mock('@/lib/billing-utils', () => ({
-  formatCurrency: (val: number) => `₹${val.toLocaleString('en-IN')}`,
+  formatCurrency: (val: number) => `PKR ${val.toLocaleString('en-IN')}`,
   calculateInvoiceTotals: (items: any[], discountType: string, discountValue: number) => {
     const subtotal = items.reduce((sum: number, i: any) => sum + i.quantity * i.unitPrice, 0)
     const discountAmount = discountType === 'PERCENTAGE' ? (subtotal * discountValue) / 100 : discountValue

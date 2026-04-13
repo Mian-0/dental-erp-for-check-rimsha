@@ -278,8 +278,8 @@ const setupSections: SetupSection[] = [
           'Click "Save Settings"',
         ],
         tips: [
-          'Standard dental GST in India: CGST 9% + SGST 9% = 18% total',
-          'If your clinic is below the GST threshold (₹20 lakh turnover), you can set both to 0%',
+          'Standard dental GST in Pakistan: CGST 9% + SGST 9% = 18% total',
+          'If your clinic is below the GST threshold (PKR 20 lakh turnover), you can set both to 0%',
           'Tax is calculated automatically on every invoice',
         ],
         link: { label: 'Go to Billing Settings', href: '/settings/billing' },
@@ -356,7 +356,7 @@ const setupSections: SetupSection[] = [
           'Click "Save Gateway Settings"',
         ],
         tips: [
-          'PhonePe is popular for UPI payments in India',
+          'PhonePe is popular for UPI payments in Pakistan',
           'PhonePe charges ~1.5-2% per transaction',
           'Make sure your business category is set correctly during KYC',
         ],
@@ -401,7 +401,7 @@ const setupSections: SetupSection[] = [
     guides: [
       {
         title: 'Set Up SMS Gateway (MSG91)',
-        description: 'MSG91 is the most popular SMS gateway in India. Here\'s how to connect it.',
+        description: 'MSG91 is the most popular SMS gateway in Pakistan. Here\'s how to connect it.',
         steps: [
           'Create an account at msg91.com',
           'Verify your email and phone number',
@@ -420,7 +420,7 @@ const setupSections: SetupSection[] = [
           'SMS can only be sent between 9 AM - 9 PM IST (TRAI regulation)',
           'Route 4 = Transactional (appointment reminders), Route 1 = Promotional (offers)',
           'DND-registered numbers will receive Transactional SMS but not Promotional',
-          'SMS costs approximately ₹0.15 - ₹0.25 per message depending on volume',
+          'SMS costs approximately PKR 0.15 - PKR 0.25 per message depending on volume',
         ],
         link: { label: 'Go to Communication Settings', href: '/settings/communications' },
         externalLinks: [
@@ -635,7 +635,7 @@ const setupSections: SetupSection[] = [
         ],
         tips: [
           'OpenRouter provides access to multiple AI models at competitive prices',
-          'DentalERP uses cost-effective models — typical monthly cost is ₹100-500 for a small clinic',
+          'DentalERP uses cost-effective models — typical monthly cost is PKR 100-500 for a small clinic',
           'You can set a monthly budget limit in AI Settings to control spending',
           'Start with "Economy" model and upgrade to "Quality" if needed',
         ],
@@ -657,7 +657,7 @@ const setupSections: SetupSection[] = [
           '  — Morning Briefing: Daily summary for clinic admins',
           '  — Patient Risk Scoring: Automatic risk assessment',
           'Set your Model Preference: Economy (cheapest), Balanced, or Quality',
-          'Set your Monthly AI Budget limit (e.g., ₹500)',
+          'Set your Monthly AI Budget limit (e.g., PKR 500)',
           'Click "Save Settings"',
         ],
         tips: [
@@ -793,7 +793,7 @@ const setupSections: SetupSection[] = [
           'Always back up your data before importing',
           'Start with a small file (10-20 rows) to test the process before importing everything',
           'The system supports: Patients, Staff, Appointments, Treatments, Invoices, Payments, and Inventory',
-          'Phone numbers should be 10-digit Indian mobile numbers',
+          'Phone numbers should be 10-digit Pakistann mobile numbers',
           'Date formats accepted: DD/MM/YYYY (preferred) and MM/DD/YYYY',
           'If importing staff, temporary passwords will be created — share them with each staff member',
         ],

@@ -47,7 +47,7 @@ import {
   Clock,
   CheckCircle,
   AlertCircle,
-  IndianRupee,
+  PakistannRupee,
   Banknote,
   Smartphone,
   Building2,
@@ -751,7 +751,7 @@ export default function InvoiceDetailPage({
             <div className="space-y-2">
               <Label>Amount</Label>
               <div className="relative">
-                <IndianRupee className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <PakistannRupee className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
                   type="number"
                   value={paymentAmount}

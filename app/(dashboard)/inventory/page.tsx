@@ -214,7 +214,7 @@ export default function InventoryPage() {
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat("en-IN", {
       style: "currency",
-      currency: "INR",
+      currency: "PKR",
       minimumFractionDigits: 2,
     }).format(amount)
   }

@@ -13,7 +13,7 @@ import {
   TrendingUp,
   AlertTriangle,
   ArrowRight,
-  IndianRupee,
+  PakistannRupee,
 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 
@@ -73,7 +73,7 @@ export default function CRMDashboardPage() {
           <CardContent>
             <div className="text-2xl font-bold">{data?.memberships.active || 0}</div>
             <p className="text-xs text-muted-foreground">
-              <IndianRupee className="h-3 w-3 inline" />
+              <PakistannRupee className="h-3 w-3 inline" />
               {(data?.memberships.revenue || 0).toLocaleString("en-IN")} revenue
             </p>
           </CardContent>

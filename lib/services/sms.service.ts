@@ -1,5 +1,5 @@
-// SMS Service for Indian SMS Gateways
-// Supports: MSG91, TextLocal, Fast2SMS, Twilio India
+// SMS Service for Pakistann SMS Gateways
+// Supports: MSG91, TextLocal, Fast2SMS, Twilio Pakistan
 
 import prisma from '@/lib/prisma';
 
@@ -49,8 +49,8 @@ class SMSService {
   }
 
   async sendSMS(payload: SMSPayload): Promise<string> {
-    // Validate phone number (Indian format)
-    if (!this.isValidIndianPhoneNumber(payload.phone)) {
+    // Validate phone number (Pakistann format)
+    if (!this.isValidPakistannPhoneNumber(payload.phone)) {
       throw new Error('Invalid phone number format');
     }
 
@@ -278,11 +278,11 @@ class SMSService {
     };
   }
 
-  private isValidIndianPhoneNumber(phone: string): boolean {
+  private isValidPakistannPhoneNumber(phone: string): boolean {
     // Remove all non-digit characters
     const cleaned = phone.replace(/\D/g, '');
 
-    // Check if it's a valid 10-digit Indian mobile number
+    // Check if it's a valid 10-digit Pakistann mobile number
     return /^[6-9]\d{9}$/.test(cleaned);
   }
 
@@ -369,7 +369,7 @@ class SMSService {
     // Implementation depends on gateway
     return {
       balance: 0,
-      currency: 'INR',
+      currency: 'PKR',
     };
   }
 }

@@ -250,7 +250,7 @@ describe('getTreatmentStatusBadge()', () => {
 // ---------------------------------------------------------------------------
 describe('formatCurrency() — treatment-utils', () => {
   it('formats number in INR', () => {
-    expect(formatCurrency(2500)).toMatch(/₹/)
+    expect(formatCurrency(2500)).toMatch(/PKR /)
     expect(formatCurrency(2500)).toMatch(/2,500/)
   })
 

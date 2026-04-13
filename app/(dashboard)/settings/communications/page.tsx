@@ -342,7 +342,7 @@ export default function CommunicationSettingsPage() {
             <CardHeader>
               <CardTitle>SMS Gateway Settings</CardTitle>
               <CardDescription>
-                Configure your Indian SMS gateway provider
+                Configure your Pakistann SMS gateway provider
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -372,7 +372,7 @@ export default function CommunicationSettingsPage() {
                       <SelectItem value="MSG91">MSG91</SelectItem>
                       <SelectItem value="TEXTLOCAL">TextLocal</SelectItem>
                       <SelectItem value="FAST2SMS">Fast2SMS</SelectItem>
-                      <SelectItem value="TWILIO">Twilio India</SelectItem>
+                      <SelectItem value="TWILIO">Twilio Pakistan</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -429,7 +429,7 @@ export default function CommunicationSettingsPage() {
                       onChange={(e) => setTestPhone(e.target.value)}
                     />
                     <p className="text-xs text-muted-foreground">
-                      Enter a 10-digit Indian mobile number
+                      Enter a 10-digit Pakistann mobile number
                     </p>
                   </div>
                   <Button onClick={handleTestSMS} disabled={testing} variant="outline">

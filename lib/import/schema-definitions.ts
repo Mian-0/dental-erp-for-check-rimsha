@@ -326,7 +326,7 @@ export function resolveEnum(
   return null
 }
 
-/** Try to parse a date string in common Indian/international formats */
+/** Try to parse a date string in common Pakistann/international formats */
 export function parseDate(value: string): Date | null {
   if (!value) return null
   const trimmed = value.trim()
@@ -337,7 +337,7 @@ export function parseDate(value: string): Date | null {
     if (!isNaN(d.getTime())) return d
   }
 
-  // DD/MM/YYYY or DD-MM-YYYY (Indian standard — try first)
+  // DD/MM/YYYY or DD-MM-YYYY (Pakistann standard — try first)
   const ddmm = trimmed.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/)
   if (ddmm) {
     const [, day, month, year] = ddmm

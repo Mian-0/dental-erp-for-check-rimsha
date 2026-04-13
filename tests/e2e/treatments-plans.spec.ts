@@ -81,7 +81,7 @@ test.describe('Treatment Plans', () => {
       await page.goto('/treatments/plans/new')
       await page.waitForTimeout(1000)
       await expect(
-        page.getByText(/total|amount|cost|₹/i).first().or(page.locator('body'))
+        page.getByText(/total|amount|cost|PKR /i).first().or(page.locator('body'))
       ).toBeVisible({ timeout: 5000 })
     })
   })

@@ -791,12 +791,12 @@ export default function PatientDetailPage({ params }: { params: Promise<{ id: st
                                 )}
                                 {event.metadata.cost && (
                                   <span className="text-xs bg-muted px-2 py-1 rounded">
-                                    ₹{Number(event.metadata.cost).toLocaleString()}
+                                    PKR {Number(event.metadata.cost).toLocaleString()}
                                   </span>
                                 )}
                                 {event.metadata.amount && (
                                   <span className="text-xs bg-muted px-2 py-1 rounded">
-                                    ₹{Number(event.metadata.amount).toLocaleString()}
+                                    PKR {Number(event.metadata.amount).toLocaleString()}
                                   </span>
                                 )}
                               </div>
@@ -1267,8 +1267,8 @@ export default function PatientDetailPage({ params }: { params: Promise<{ id: st
                           <TableCell>
                             {format(new Date(invoice.createdAt), 'PP')}
                           </TableCell>
-                          <TableCell>₹{Number(invoice.totalAmount).toLocaleString()}</TableCell>
-                          <TableCell>₹{totalPaid.toLocaleString()}</TableCell>
+                          <TableCell>PKR {Number(invoice.totalAmount).toLocaleString()}</TableCell>
+                          <TableCell>PKR {totalPaid.toLocaleString()}</TableCell>
                           <TableCell>
                             <Badge
                               variant={

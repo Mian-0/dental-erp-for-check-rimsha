@@ -64,7 +64,7 @@ describe('downloadCSV', () => {
   })
 
   it('generates correct CSV content with headers and rows', () => {
-    const data = [{ name: 'Alice', city: 'Delhi' }]
+    const data = [{ name: 'Alice', city: 'Islamabad' }]
 
     let capturedBlob: Blob | null = null
     // @ts-ignore

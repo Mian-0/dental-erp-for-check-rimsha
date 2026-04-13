@@ -282,7 +282,7 @@ export default function LabWorkPage() {
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
-      currency: 'INR',
+      currency: 'PKR',
       maximumFractionDigits: 0
     }).format(amount)
   }

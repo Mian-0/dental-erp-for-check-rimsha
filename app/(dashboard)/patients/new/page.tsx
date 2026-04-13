@@ -47,7 +47,7 @@ export default function NewPatientPage() {
     email: "",
     address: "",
     city: "",
-    state: "Tamil Nadu",
+    state: "Punjab",
     pincode: "",
     aadharNumber: "",
     occupation: "",

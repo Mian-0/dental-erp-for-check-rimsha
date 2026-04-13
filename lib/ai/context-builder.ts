@@ -123,7 +123,7 @@ export function serializeContext(ctx: AIContext): string {
     if (ctx.patient.currentMedications)
       lines.push(`  Current medications: ${ctx.patient.currentMedications}`)
     if (ctx.patient.outstandingBalance > 0)
-      lines.push(`  Outstanding balance: ₹${ctx.patient.outstandingBalance.toLocaleString("en-IN")}`)
+      lines.push(`  Outstanding balance: PKR ${ctx.patient.outstandingBalance.toLocaleString("en-IN")}`)
     if (ctx.patient.riskScore !== undefined) lines.push(`  Risk score: ${ctx.patient.riskScore}/100`)
     if (ctx.patient.treatmentPlans.length > 0)
       lines.push(

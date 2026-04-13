@@ -141,7 +141,7 @@ describe('PaymentCheckout', () => {
 
       render(<PaymentCheckout {...defaultProps} open={true} />)
 
-      // Find and click the "Pay ₹5,000" button (the main CTA)
+      // Find and click the "Pay PKR 5,000" button (the main CTA)
       const payButtons = screen.getAllByText(/Pay/)
       const mainPayBtn = payButtons.find((btn) => btn.closest('button')?.textContent?.includes('5,000'))
       fireEvent.click(mainPayBtn || payButtons[payButtons.length - 1])

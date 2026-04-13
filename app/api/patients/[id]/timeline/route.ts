@@ -137,7 +137,7 @@ export async function GET(
           type: 'payment',
           date: invoice.createdAt,
           title: `Invoice ${invoice.invoiceNo}`,
-          description: `Total: ₹${Number(invoice.totalAmount).toLocaleString()}`,
+          description: `Total: PKR ${Number(invoice.totalAmount).toLocaleString()}`,
           status: invoice.status,
           metadata: {
             invoiceNo: invoice.invoiceNo,
@@ -152,7 +152,7 @@ export async function GET(
             type: 'payment',
             date: payment.createdAt,
             title: `Payment Received`,
-            description: `₹${Number(payment.amount).toLocaleString()} via ${payment.paymentMethod}`,
+            description: `PKR ${Number(payment.amount).toLocaleString()} via ${payment.paymentMethod}`,
             status: payment.status,
             metadata: {
               amount: payment.amount,

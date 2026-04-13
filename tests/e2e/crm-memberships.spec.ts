@@ -30,7 +30,7 @@ test.describe('CRM Memberships', () => {
       await page.goto('/crm/memberships')
       await page.waitForTimeout(1000)
       await expect(
-        page.getByText(/₹|price|fee|annual|monthly|amount/i).first()
+        page.getByText(/PKR |price|fee|annual|monthly|amount/i).first()
           .or(page.getByText(/no.*plan|no.*data/i).first())
       ).toBeVisible({ timeout: 5000 })
     })

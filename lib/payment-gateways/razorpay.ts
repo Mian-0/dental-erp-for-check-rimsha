@@ -50,7 +50,7 @@ export class RazorpayGateway implements PaymentGateway {
       method: "POST",
       body: JSON.stringify({
         amount: amountInPaise,
-        currency: params.currency || "INR",
+        currency: params.currency || "PKR",
         receipt: params.receipt,
         notes: {
           invoiceId: params.invoiceId,

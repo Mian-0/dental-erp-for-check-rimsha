@@ -33,7 +33,7 @@ import {
   Plus,
   Trash2,
   AlertCircle,
-  IndianRupee,
+  PakistannRupee,
   Calculator,
   FileText,
 } from "lucide-react"
@@ -622,7 +622,7 @@ export default function NewInvoicePage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="FIXED">₹ Fixed</SelectItem>
+                      <SelectItem value="FIXED">PKR  Fixed</SelectItem>
                       <SelectItem value="PERCENTAGE">% Percent</SelectItem>
                     </SelectContent>
                   </Select>

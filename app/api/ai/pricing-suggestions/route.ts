@@ -109,11 +109,11 @@ DOCTOR UTILIZATION:
 ${Object.entries(doctorApptCount).map(([name, count]) => `  ${name}: ${count} appointments (${Math.round(count / 90 * 100 / 8)}% daily utilization est.)`).join("\n")}
 
 PROCEDURES:
-${procedures.slice(0, 20).map((p) => `  ${p.name} (${p.category || "General"}) — ₹${p.basePrice}`).join("\n")}
+${procedures.slice(0, 20).map((p) => `  ${p.name} (${p.category || "General"}) — PKR ${p.basePrice}`).join("\n")}
 
 REVENUE (Last 30 days):
 - Total invoices: ${recentInvoices.length}
-- Total revenue: ₹${recentInvoices.reduce((s, inv) => s + Number(inv.totalAmount), 0).toLocaleString()}
+- Total revenue: PKR ${recentInvoices.reduce((s, inv) => s + Number(inv.totalAmount), 0).toLocaleString()}
 - Working hours: ${hospital.workingHours || "09:00-18:00, Mon-Sat"}
 `
 

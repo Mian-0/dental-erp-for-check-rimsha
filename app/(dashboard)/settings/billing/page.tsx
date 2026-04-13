@@ -24,8 +24,8 @@ export default function BillingSettingsPage() {
     invoiceStartingNumber: '1001',
     invoiceNotes: 'Thank you for choosing our services.',
     termsAndConditions: 'Payment is due within 30 days from the invoice date.\nLate payments may incur additional charges.',
-    currencySymbol: '₹',
-    currencyCode: 'INR',
+    currencySymbol: 'PKR ',
+    currencyCode: 'PKR',
     enableAutoInvoice: 'true',
     lateFeePercentage: '2',
     minimumDueAmount: '100',
@@ -250,7 +250,7 @@ export default function BillingSettingsPage() {
                   id="currencyCode"
                   value={settings.currencyCode}
                   onChange={(e) => setSettings({ ...settings, currencyCode: e.target.value })}
-                  placeholder="INR"
+                  placeholder="PKR"
                 />
               </div>
 
@@ -260,7 +260,7 @@ export default function BillingSettingsPage() {
                   id="currencySymbol"
                   value={settings.currencySymbol}
                   onChange={(e) => setSettings({ ...settings, currencySymbol: e.target.value })}
-                  placeholder="₹"
+                  placeholder="PKR "
                 />
               </div>
             </div>

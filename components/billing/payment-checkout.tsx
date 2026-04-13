@@ -115,7 +115,7 @@ export function PaymentCheckout({
       const options = {
         key: checkout.key,
         amount: checkout.amount,
-        currency: checkout.currency || "INR",
+        currency: checkout.currency || "PKR",
         name: hospital.name,
         description: `Payment for ${invoiceNo}`,
         order_id: checkout.orderId,
@@ -224,7 +224,7 @@ export function PaymentCheckout({
   const formatCurrency = (val: number) =>
     new Intl.NumberFormat("en-IN", {
       style: "currency",
-      currency: "INR",
+      currency: "PKR",
       minimumFractionDigits: 0,
     }).format(val)
 

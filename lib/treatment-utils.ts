@@ -290,12 +290,12 @@ export function formatDuration(minutes: number): string {
   return `${hours} hr ${mins} min`
 }
 
-// Format currency for Indian Rupees
+// Format currency for Pakistann Rupees
 export function formatCurrency(amount: number | string): string {
   const num = typeof amount === 'string' ? parseFloat(amount) : amount
   return new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'INR',
+    currency: 'PKR',
     minimumFractionDigits: 0,
     maximumFractionDigits: 2
   }).format(num)

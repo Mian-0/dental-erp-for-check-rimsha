@@ -246,8 +246,8 @@ describe('GET /api/settings/clinic', () => {
       name: 'Test Dental Clinic',
       phone: '9876543210',
       address: '123 Main St',
-      city: 'Delhi',
-      state: 'Delhi',
+      city: 'Islamabad',
+      state: 'Islamabad',
       pincode: '110001',
       slug: 'test-dental',
     }
@@ -292,7 +292,7 @@ describe('POST /api/settings/clinic', () => {
       name: 'Updated Clinic',
       phone: '9876543210',
       address: '456 New Rd',
-      city: 'Mumbai',
+      city: 'Lahore',
       state: 'Maharashtra',
       pincode: '400001',
     }
@@ -315,7 +315,7 @@ describe('POST /api/settings/clinic', () => {
     const res = await clinicPOST(makeReq('/api/settings/clinic', 'POST', {
       phone: '9876543210',
       address: '456 New Rd',
-      city: 'Mumbai',
+      city: 'Lahore',
       state: 'Maharashtra',
       pincode: '400001',
     }))

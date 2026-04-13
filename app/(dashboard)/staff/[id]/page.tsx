@@ -151,7 +151,7 @@ export default function StaffDetailPage({
     if (amount === null) return "-"
     return new Intl.NumberFormat("en-IN", {
       style: "currency",
-      currency: "INR",
+      currency: "PKR",
       maximumFractionDigits: 0,
     }).format(amount)
   }

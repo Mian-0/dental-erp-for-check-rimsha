@@ -390,7 +390,7 @@ describe('9.3 Configuration Testing', () => {
   });
 
   describe('Timezone configuration', () => {
-    it('TZ is set to Asia/Kolkata for Indian locale', () => {
+    it('TZ is set to Asia/Kolkata for Pakistann locale', () => {
       const tz = process.env.TZ || 'Asia/Kolkata';
       expect(tz).toBe('Asia/Kolkata');
     });

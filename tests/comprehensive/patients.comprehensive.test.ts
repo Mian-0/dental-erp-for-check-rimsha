@@ -396,7 +396,7 @@ describe('Patients API - Comprehensive Tests', () => {
           bloodGroup: 'O+',
           email: 'john@example.com',
           address: '123 Main St',
-          city: 'Mumbai',
+          city: 'Lahore',
           state: 'Maharashtra',
           pincode: '400001',
           aadharNumber: '123456789012',

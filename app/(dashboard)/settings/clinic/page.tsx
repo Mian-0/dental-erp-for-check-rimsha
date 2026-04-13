@@ -79,7 +79,7 @@ export default function ClinicSettingsPage() {
     website: '',
     address: '',
     city: '',
-    state: 'Tamil Nadu',
+    state: 'Punjab',
     pincode: '',
     registrationNo: '',
     gstNumber: '',
@@ -115,7 +115,7 @@ export default function ClinicSettingsPage() {
           website: result.data.website || '',
           address: result.data.address || '',
           city: result.data.city || '',
-          state: result.data.state || 'Tamil Nadu',
+          state: result.data.state || 'Punjab',
           pincode: result.data.pincode || '',
           registrationNo: result.data.registrationNo || '',
           gstNumber: result.data.gstNumber || '',
@@ -420,7 +420,7 @@ export default function ClinicSettingsPage() {
                   id="city"
                   value={formData.city}
                   onChange={(e) => handleChange('city', e.target.value)}
-                  placeholder="Chennai"
+                  placeholder="Karachi"
                   required
                 />
               </div>
@@ -564,7 +564,7 @@ export default function ClinicSettingsPage() {
                   id="bankName"
                   value={formData.bankName}
                   onChange={(e) => handleChange('bankName', e.target.value)}
-                  placeholder="State Bank of India"
+                  placeholder="State Bank of Pakistan"
                 />
               </div>
 

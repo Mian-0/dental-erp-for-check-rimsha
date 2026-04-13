@@ -87,7 +87,7 @@ vi.mock('@/hooks/use-toast', () => ({
 }))
 
 vi.mock('@/lib/billing-utils', () => ({
-  formatCurrency: (n: number) => `₹${n.toLocaleString('en-IN')}`,
+  formatCurrency: (n: number) => `PKR ${n.toLocaleString('en-IN')}`,
   formatDate: (d: string) => new Date(d).toLocaleDateString('en-IN'),
 }))
 

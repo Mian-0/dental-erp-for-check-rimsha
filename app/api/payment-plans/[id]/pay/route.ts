@@ -156,7 +156,7 @@ export async function POST(
     })
 
     return NextResponse.json({
-      message: `Payment of ₹${payAmount.toLocaleString("en-IN")} recorded`,
+      message: `Payment of PKR ${payAmount.toLocaleString("en-IN")} recorded`,
       payment: result.payment,
       remainingInstallments: result.remainingInstallments,
     })

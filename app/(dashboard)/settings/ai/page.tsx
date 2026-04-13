@@ -182,7 +182,7 @@ export default function AISettingsPage() {
         <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Limits & Guardrails</h2>
         <div className="flex gap-4">
           <div className="flex-1">
-            <label className="text-xs font-medium text-muted-foreground">Financial Approval Limit (₹)</label>
+            <label className="text-xs font-medium text-muted-foreground">Financial Approval Limit (PKR )</label>
             <input
               type="number"
               value={settings.ai_financial_approval_limit}
@@ -192,7 +192,7 @@ export default function AISettingsPage() {
             <p className="text-xs text-muted-foreground mt-1">Transactions above this amount need manual approval</p>
           </div>
           <div className="flex-1">
-            <label className="text-xs font-medium text-muted-foreground">Monthly AI Budget (₹)</label>
+            <label className="text-xs font-medium text-muted-foreground">Monthly AI Budget (PKR )</label>
             <input
               type="number"
               value={settings.ai_monthly_budget}

@@ -72,7 +72,7 @@ export class PhonePeGateway implements PaymentGateway {
     return {
       orderId: merchantTransactionId,
       amount: amountInPaise,
-      currency: params.currency || "INR",
+      currency: params.currency || "PKR",
       receipt: params.receipt,
       provider: "phonepe",
       status: "CREATED",

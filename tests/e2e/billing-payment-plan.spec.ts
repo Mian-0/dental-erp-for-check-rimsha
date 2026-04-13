@@ -82,7 +82,7 @@ test.describe('Payment Plans (EMI)', () => {
       await page.waitForTimeout(1000)
       // Total amount and per-installment breakdown
       await expect(
-        page.getByText(/total|amount|₹|per.*installment/i).first()
+        page.getByText(/total|amount|PKR |per.*installment/i).first()
           .or(page.locator('body'))
       ).toBeVisible({ timeout: 5000 })
     })

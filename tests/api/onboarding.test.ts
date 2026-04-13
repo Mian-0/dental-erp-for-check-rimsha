@@ -28,7 +28,7 @@ function createRequest(body: any) {
 
 const validOnboardingData = {
   address: '123 Main St',
-  city: 'Mumbai',
+  city: 'Lahore',
   state: 'Maharashtra',
   pincode: '400001',
   tagline: 'Best dental clinic',
@@ -127,7 +127,7 @@ describe('Onboarding API — POST /api/onboarding', () => {
         data: expect.objectContaining({
           onboardingCompleted: true,
           address: '123 Main St',
-          city: 'Mumbai',
+          city: 'Lahore',
           state: 'Maharashtra',
           pincode: '400001',
           gstNumber: '27AAPFU0939F1ZV',
@@ -145,7 +145,7 @@ describe('Onboarding API — POST /api/onboarding', () => {
 
     const minimalData = {
       address: '123 Main St',
-      city: 'Mumbai',
+      city: 'Lahore',
       state: 'Maharashtra',
       pincode: '400001',
     }
@@ -195,7 +195,7 @@ describe('Onboarding API — GET /api/onboarding', () => {
       email: 'clinic@test.com',
       phone: '9876543210',
       address: '123 Main St',
-      city: 'Mumbai',
+      city: 'Lahore',
       state: 'Maharashtra',
       pincode: '400001',
       onboardingCompleted: true,
@@ -226,8 +226,8 @@ describe('Onboarding API — GET /api/onboarding', () => {
       phone: '9876543210',
       tagline: 'Best clinic',
       address: '123 St',
-      city: 'Delhi',
-      state: 'Delhi',
+      city: 'Islamabad',
+      state: 'Islamabad',
       pincode: '110001',
       alternatePhone: '9999999999',
       website: 'https://clinic.com',

@@ -113,7 +113,7 @@ describe('Appointment Utils - formatDate', () => {
     expect(result).toContain('2024')
   })
 
-  it('should use Indian locale format', () => {
+  it('should use Pakistann locale format', () => {
     const date = new Date('2024-06-15')
     const result = formatDate(date)
     // Should contain month abbreviation

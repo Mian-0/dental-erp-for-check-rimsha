@@ -27,18 +27,18 @@ class TemplateService {
     { key: 'chairNumber', label: 'Chair Number', description: 'Dental chair number', example: '3' },
 
     { key: 'treatmentName', label: 'Treatment Name', description: 'Name of the treatment/procedure', example: 'Root Canal' },
-    { key: 'treatmentCost', label: 'Treatment Cost', description: 'Cost of treatment', example: '₹5,000' },
+    { key: 'treatmentCost', label: 'Treatment Cost', description: 'Cost of treatment', example: 'PKR 5,000' },
 
     { key: 'invoiceNo', label: 'Invoice Number', description: 'Invoice reference number', example: 'INV001234' },
-    { key: 'invoiceAmount', label: 'Invoice Amount', description: 'Total invoice amount', example: '₹5,000' },
-    { key: 'paidAmount', label: 'Paid Amount', description: 'Amount paid', example: '₹3,000' },
-    { key: 'balanceAmount', label: 'Balance Amount', description: 'Remaining balance', example: '₹2,000' },
+    { key: 'invoiceAmount', label: 'Invoice Amount', description: 'Total invoice amount', example: 'PKR 5,000' },
+    { key: 'paidAmount', label: 'Paid Amount', description: 'Amount paid', example: 'PKR 3,000' },
+    { key: 'balanceAmount', label: 'Balance Amount', description: 'Remaining balance', example: 'PKR 2,000' },
     { key: 'dueDate', label: 'Due Date', description: 'Payment due date', example: '31-Jan-2026' },
 
     { key: 'clinicName', label: 'Clinic Name', description: 'Name of the clinic', example: 'Smile Dental Clinic' },
     { key: 'clinicPhone', label: 'Clinic Phone', description: 'Clinic contact number', example: '044-12345678' },
     { key: 'clinicEmail', label: 'Clinic Email', description: 'Clinic email address', example: 'info@yourclinic.com' },
-    { key: 'clinicAddress', label: 'Clinic Address', description: 'Clinic full address', example: '123 Main St, Chennai' },
+    { key: 'clinicAddress', label: 'Clinic Address', description: 'Clinic full address', example: '123 Main St, Karachi' },
 
     { key: 'labOrderNo', label: 'Lab Order Number', description: 'Lab work order number', example: 'LAB001234' },
     { key: 'labWorkType', label: 'Lab Work Type', description: 'Type of lab work', example: 'Crown' },
@@ -234,7 +234,7 @@ class TemplateService {
         name: 'Payment Reminder SMS',
         category: 'PAYMENT' as TemplateCategory,
         channel: 'SMS' as CommunicationChannel,
-        content: 'Dear {{patientName}}, this is a reminder that payment of ₹{{balanceAmount}} for Invoice {{invoiceNo}} is pending. Due date: {{dueDate}}. Pay at {{clinicName}} or call {{clinicPhone}}',
+        content: 'Dear {{patientName}}, this is a reminder that payment of PKR {{balanceAmount}} for Invoice {{invoiceNo}} is pending. Due date: {{dueDate}}. Pay at {{clinicName}} or call {{clinicPhone}}',
         language: 'en',
         isDefault: true,
       },
@@ -242,7 +242,7 @@ class TemplateService {
         name: 'Payment Received SMS',
         category: 'PAYMENT' as TemplateCategory,
         channel: 'SMS' as CommunicationChannel,
-        content: 'Dear {{patientName}}, we have received your payment of ₹{{paidAmount}} for Invoice {{invoiceNo}}. Thank you! - {{clinicName}}',
+        content: 'Dear {{patientName}}, we have received your payment of PKR {{paidAmount}} for Invoice {{invoiceNo}}. Thank you! - {{clinicName}}',
         language: 'en',
         isDefault: true,
       },
@@ -306,9 +306,9 @@ class TemplateService {
           <h3>Invoice Details:</h3>
           <ul>
             <li><strong>Invoice No:</strong> {{invoiceNo}}</li>
-            <li><strong>Total Amount:</strong> ₹{{invoiceAmount}}</li>
-            <li><strong>Paid Amount:</strong> ₹{{paidAmount}}</li>
-            <li><strong>Balance:</strong> ₹{{balanceAmount}}</li>
+            <li><strong>Total Amount:</strong> PKR {{invoiceAmount}}</li>
+            <li><strong>Paid Amount:</strong> PKR {{paidAmount}}</li>
+            <li><strong>Balance:</strong> PKR {{balanceAmount}}</li>
             <li><strong>Due Date:</strong> {{dueDate}}</li>
           </ul>
           <p>The detailed invoice is attached to this email.</p>

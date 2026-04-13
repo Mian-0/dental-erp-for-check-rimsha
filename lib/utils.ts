@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function formatCurrency(amount: number): string {
   return new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'INR',
+    currency: 'PKR',
     minimumFractionDigits: 0,
     maximumFractionDigits: 2,
   }).format(amount)
@@ -83,7 +83,7 @@ export function validateAadhar(aadhar: string): boolean {
   return cleaned.length === 12
 }
 
-export function validateIndianPhone(phone: string): boolean {
+export function validatePakistannPhone(phone: string): boolean {
   let cleaned = phone.replace(/\D/g, '')
   // Strip country code if present
   if (cleaned.length === 12 && cleaned.startsWith('91')) {

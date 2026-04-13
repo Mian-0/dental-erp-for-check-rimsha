@@ -144,7 +144,7 @@ export async function GET(req: NextRequest) {
       invoices: invoices.map((inv): SearchResult => ({
         id: inv.id,
         label: `${inv.invoiceNo} — ${inv.patient.firstName} ${inv.patient.lastName}`,
-        sublabel: `₹${Number(inv.totalAmount).toLocaleString("en-IN")} · ${inv.status}`,
+        sublabel: `PKR ${Number(inv.totalAmount).toLocaleString("en-IN")} · ${inv.status}`,
         href: `/billing/invoices/${inv.id}`,
       })),
       staff: staff.map((s): SearchResult => ({

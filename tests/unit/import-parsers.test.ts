@@ -21,7 +21,7 @@ describe('parseFile — dispatcher', () => {
 
 describe('parseFile — CSV', () => {
   it('parses a simple CSV with headers and data', async () => {
-    const csv = 'Name,Age,City\nAlice,30,Delhi\nBob,25,Mumbai'
+    const csv = 'Name,Age,City\nAlice,30,Islamabad\nBob,25,Lahore'
     const result = await parseFile(Buffer.from(csv), 'csv')
 
     expect(result.columns).toEqual(['Name', 'Age', 'City'])
@@ -29,7 +29,7 @@ describe('parseFile — CSV', () => {
     expect(result.totalRows).toBe(2)
     expect(result.rows[0].Name).toBe('Alice')
     expect(result.rows[0].Age).toBe('30')
-    expect(result.rows[0].City).toBe('Delhi')
+    expect(result.rows[0].City).toBe('Islamabad')
     expect(result.rows[1].Name).toBe('Bob')
   })
 
@@ -103,8 +103,8 @@ describe('parseFile — Excel', () => {
     const workbook = new ExcelJS.Workbook()
     const sheet = workbook.addWorksheet('Data')
     sheet.addRow(['Name', 'Age', 'City'])
-    sheet.addRow(['Alice', 30, 'Delhi'])
-    sheet.addRow(['Bob', 25, 'Mumbai'])
+    sheet.addRow(['Alice', 30, 'Islamabad'])
+    sheet.addRow(['Bob', 25, 'Lahore'])
 
     const buffer = await workbook.xlsx.writeBuffer()
     const result = await parseFile(Buffer.from(buffer as ArrayBuffer), 'xlsx')
@@ -113,7 +113,7 @@ describe('parseFile — Excel', () => {
     expect(result.rows).toHaveLength(2)
     expect(result.rows[0].Name).toBe('Alice')
     expect(result.rows[0].Age).toBe('30')
-    expect(result.rows[1].City).toBe('Mumbai')
+    expect(result.rows[1].City).toBe('Lahore')
   })
 
   it('handles Excel with date values', async () => {

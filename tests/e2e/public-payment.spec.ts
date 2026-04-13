@@ -7,7 +7,7 @@ test.describe('Public Payment Page', () => {
       await page.waitForTimeout(1000)
       // Should show payment page or invalid token message
       await expect(
-        page.getByText(/payment|pay|invoice|amount|₹|invalid|expired|not found/i).first()
+        page.getByText(/payment|pay|invoice|amount|PKR |invalid|expired|not found/i).first()
       ).toBeVisible({ timeout: 10000 })
     })
 
@@ -33,7 +33,7 @@ test.describe('Public Payment Page', () => {
       await page.waitForTimeout(1000)
       // Payment page should show amount or error
       await expect(
-        page.getByText(/₹|amount|total|pay|invoice|invalid|expired/i).first()
+        page.getByText(/PKR |amount|total|pay|invoice|invalid|expired/i).first()
       ).toBeVisible({ timeout: 10000 })
     })
   })

@@ -542,7 +542,7 @@ export default function EditStaffPage({
               <Separator />
 
               <div className="space-y-2">
-                <Label htmlFor="salary">Monthly Salary (₹)</Label>
+                <Label htmlFor="salary">Monthly Salary (PKR )</Label>
                 <Input
                   id="salary"
                   type="number"

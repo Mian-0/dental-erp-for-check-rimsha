@@ -82,7 +82,7 @@ export default function DashboardPage() {
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
-      currency: 'INR',
+      currency: 'PKR',
       maximumFractionDigits: 0,
     }).format(amount);
   };
@@ -405,7 +405,7 @@ export default function DashboardPage() {
                   />
                   <Legend />
                   <Bar yAxisId="left" dataKey="count" fill="#8884d8" name="Count" />
-                  <Bar yAxisId="right" dataKey="revenue" fill="#82ca9d" name="Revenue (₹)" />
+                  <Bar yAxisId="right" dataKey="revenue" fill="#82ca9d" name="Revenue (PKR )" />
                 </BarChart>
               </ResponsiveContainer>
             ) : (

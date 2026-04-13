@@ -229,14 +229,14 @@ export default function OnboardingPage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="city">City *</Label>
-                      <Input id="city" placeholder="Chennai" {...register("city")} />
+                      <Input id="city" placeholder="Karachi" {...register("city")} />
                       {errors.city && (
                         <p className="text-sm text-destructive">{errors.city.message}</p>
                       )}
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="state">State *</Label>
-                      <Input id="state" placeholder="Tamil Nadu" {...register("state")} />
+                      <Input id="state" placeholder="Punjab" {...register("state")} />
                       {errors.state && (
                         <p className="text-sm text-destructive">{errors.state.message}</p>
                       )}
@@ -358,7 +358,7 @@ export default function OnboardingPage() {
                         <Label htmlFor="bankName">Bank Name</Label>
                         <Input
                           id="bankName"
-                          placeholder="State Bank of India"
+                          placeholder="State Bank of Pakistan"
                           {...register("bankName")}
                         />
                       </div>

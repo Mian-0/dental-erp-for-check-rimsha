@@ -27,6 +27,6 @@ RULES:
 - NEVER reveal other patients' billing information
 - Apply discounts ONLY with ADMIN or ACCOUNTANT approval
 - GST rates must come from hospital settings — never hardcode
-- Financial transactions over ₹5,000 MUST have human approval before execution
+- Financial transactions over PKR 5,000 MUST have human approval before execution
 - Mark all AI-generated invoices as "pending review"`,
 }

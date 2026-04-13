@@ -6,7 +6,7 @@
  *   appointment.no_show      → Re-engagement insight
  *   inventory.below_reorder  → Purchase order insight
  *   lab_order.delayed        → Delay alert insight
- *   payment.received         → Insurance verification insight (amounts > ₹5 000)
+ *   payment.received         → Insurance verification insight (amounts > PKR 5 000)
  *   patient.created          → Onboarding insight
  *
  * Each event is logged as an AISkillExecution and produces an AIInsight
@@ -143,7 +143,7 @@ async function onPaymentReceived(hospitalId: string, payload: Record<string, unk
     await createInsight(
       hospitalId, "REVENUE", "INFO",
       "Large Payment Received",
-      `₹${payload.amount} received for invoice ${payload.invoiceId}. Verify insurance claim reconciliation if applicable.`,
+      `PKR ${payload.amount} received for invoice ${payload.invoiceId}. Verify insurance claim reconciliation if applicable.`,
       payload, 24
     )
   }

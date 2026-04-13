@@ -202,11 +202,11 @@ export const discountTypeConfig: Record<DiscountType, {
   },
   FIXED: {
     label: "Fixed Amount",
-    symbol: "₹"
+    symbol: "PKR "
   }
 }
 
-// GST Configuration (Indian Tax)
+// GST Configuration (Pakistann Tax)
 export const gstConfig = {
   cgstRate: 9, // Central GST
   sgstRate: 9, // State GST
@@ -328,15 +328,15 @@ export function calculateInvoiceTotals(
 
 // Format currency in INR
 export function formatCurrency(amount: number | string | null | undefined): string {
-  if (amount === null || amount === undefined) return "₹0.00"
+  if (amount === null || amount === undefined) return "PKR 0.00"
 
   const numAmount = typeof amount === "string" ? parseFloat(amount) : amount
 
-  if (isNaN(numAmount)) return "₹0.00"
+  if (isNaN(numAmount)) return "PKR 0.00"
 
   return new Intl.NumberFormat("en-IN", {
     style: "currency",
-    currency: "INR",
+    currency: "PKR",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
   }).format(numAmount)
@@ -568,7 +568,7 @@ export function calculateDueDate(
   return dueDate
 }
 
-// Number to words (Indian format) for invoice amounts
+// Number to words (Pakistann format) for invoice amounts
 export function numberToWords(num: number): string {
   if (num === 0) return "Zero"
 
@@ -591,7 +591,7 @@ export function numberToWords(num: number): string {
     return ones[Math.floor(n / 100)] + " Hundred" + (n % 100 ? " " + convertGroup(n % 100) : "")
   }
 
-  // Handle Indian numbering system
+  // Handle Pakistann numbering system
   const rupees = Math.floor(num)
   const paise = Math.round((num - rupees) * 100)
 

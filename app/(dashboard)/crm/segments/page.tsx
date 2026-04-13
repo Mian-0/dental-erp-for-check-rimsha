@@ -212,7 +212,7 @@ export default function SegmentsPage() {
                                 : "Never"}
                             </TableCell>
                             <TableCell className="text-right">
-                              ₹{patient.totalSpend.toLocaleString("en-IN")}
+                              PKR {patient.totalSpend.toLocaleString("en-IN")}
                             </TableCell>
                           </TableRow>
                         ))}
@@ -296,7 +296,7 @@ export default function SegmentsPage() {
                       </TableCell>
                       <TableCell>{p.rfm?.recency || "N/A"}</TableCell>
                       <TableCell>{p.rfm?.frequency || 0}</TableCell>
-                      <TableCell>{p.rfm?.monetary ? `₹${p.rfm.monetary.toLocaleString("en-IN")}` : "₹0"}</TableCell>
+                      <TableCell>{p.rfm?.monetary ? `PKR ${p.rfm.monetary.toLocaleString("en-IN")}` : "PKR 0"}</TableCell>
                       <TableCell>
                         <Badge className={
                           p.churnLevel === "HIGH" ? "bg-red-100 text-red-700 border-0" :

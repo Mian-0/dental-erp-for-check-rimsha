@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
     // Create order with the gateway
     const order = await gateway.createOrder({
       amount: payAmount,
-      currency: "INR",
+      currency: "PKR",
       invoiceId: invoice.id,
       receipt: invoice.invoiceNo,
       customerName: `${invoice.patient.firstName} ${invoice.patient.lastName}`,
@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
       order: {
         orderId: order.orderId,
         amount: payAmount,
-        currency: "INR",
+        currency: "PKR",
         provider: order.provider,
       },
       checkout: checkoutConfig,

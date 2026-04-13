@@ -77,7 +77,7 @@ export class PaytmGateway implements PaymentGateway {
         orderId,
         txnAmount: {
           value: amountStr,
-          currency: params.currency || "INR",
+          currency: params.currency || "PKR",
         },
         userInfo: {
           custId: params.invoiceId,
@@ -109,7 +109,7 @@ export class PaytmGateway implements PaymentGateway {
     return {
       orderId,
       amount: Math.round(params.amount * 100),
-      currency: params.currency || "INR",
+      currency: params.currency || "PKR",
       receipt: params.receipt,
       provider: "paytm",
       status: "CREATED",

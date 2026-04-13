@@ -41,7 +41,7 @@ import {
   Clock,
   AlertCircle,
   XCircle,
-  IndianRupee,
+  PakistannRupee,
   CalendarClock,
   Ban,
   CreditCard,
@@ -275,7 +275,7 @@ export default function PaymentPlanDetailPage({
   }
 
   const formatCurrency = (amount: number) =>
-    `₹${amount.toLocaleString("en-IN", { minimumFractionDigits: 0, maximumFractionDigits: 2 })}`
+    `PKR ${amount.toLocaleString("en-IN", { minimumFractionDigits: 0, maximumFractionDigits: 2 })}`
 
   if (loading) {
     return (
@@ -349,7 +349,7 @@ export default function PaymentPlanDetailPage({
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Amount</CardTitle>
-            <IndianRupee className="h-4 w-4 text-muted-foreground" />
+            <PakistannRupee className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{formatCurrency(plan.totalAmount)}</div>
@@ -636,7 +636,7 @@ export default function PaymentPlanDetailPage({
           </DialogHeader>
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label>Amount (₹)</Label>
+              <Label>Amount (PKR )</Label>
               <Input
                 type="number"
                 value={payAmount}

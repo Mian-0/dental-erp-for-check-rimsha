@@ -390,7 +390,7 @@ export async function execCreateTreatment(params: Record<string, string>, hospit
 
   return {
     success: true,
-    message: `Treatment ${treatment.treatmentNo} created: ${procedure.name} for ${patient.firstName} ${patient.lastName} by Dr. ${doctor.firstName}. Cost: ₹${Number(treatment.cost).toLocaleString("en-IN")}.`,
+    message: `Treatment ${treatment.treatmentNo} created: ${procedure.name} for ${patient.firstName} ${patient.lastName} by Dr. ${doctor.firstName}. Cost: PKR ${Number(treatment.cost).toLocaleString("en-IN")}.`,
   }
 }
 
@@ -456,7 +456,7 @@ export async function execShowTreatments(params: Record<string, string>, hospita
       patient: `${t.patient.firstName} ${t.patient.lastName}`,
       procedure: t.procedure.name,
       doctor: `Dr. ${t.doctor.firstName}`,
-      cost: `₹${Number(t.cost).toLocaleString("en-IN")}`,
+      cost: `PKR ${Number(t.cost).toLocaleString("en-IN")}`,
       status: t.status,
       date: t.createdAt.toISOString().split("T")[0],
     })),
@@ -514,7 +514,7 @@ export async function execCreateInvoice(params: Record<string, string>, hospital
 
   return {
     success: true,
-    message: `Invoice ${invoice.invoiceNo} created for ${patient.firstName} ${patient.lastName}. Subtotal: ₹${subtotal.toLocaleString("en-IN")}, GST: ₹${(cgstAmount + sgstAmount).toFixed(2)}, Total: ₹${totalAmount.toFixed(2)}. Includes ${unbilled.length} treatment(s).`,
+    message: `Invoice ${invoice.invoiceNo} created for ${patient.firstName} ${patient.lastName}. Subtotal: PKR ${subtotal.toLocaleString("en-IN")}, GST: PKR ${(cgstAmount + sgstAmount).toFixed(2)}, Total: PKR ${totalAmount.toFixed(2)}. Includes ${unbilled.length} treatment(s).`,
     invoiceNo: invoice.invoiceNo,
   }
 }
@@ -544,7 +544,7 @@ export async function execRecordPayment(params: Record<string, string>, hospital
   const amount = params.amount ? parseFloat(params.amount) : Number(invoice.balanceAmount)
   if (amount <= 0) return { success: false, message: "Payment amount must be positive." }
   if (amount > Number(invoice.balanceAmount)) {
-    return { success: false, message: `Amount ₹${amount} exceeds balance ₹${Number(invoice.balanceAmount).toLocaleString("en-IN")}.` }
+    return { success: false, message: `Amount PKR ${amount} exceeds balance PKR ${Number(invoice.balanceAmount).toLocaleString("en-IN")}.` }
   }
 
   const paymentNo = await nextNumber(hospitalId, "payment", "PAY")
@@ -575,7 +575,7 @@ export async function execRecordPayment(params: Record<string, string>, hospital
 
   return {
     success: true,
-    message: `Payment ${paymentNo} of ₹${amount.toLocaleString("en-IN")} recorded for invoice ${invoice.invoiceNo} (${invoice.patient.firstName} ${invoice.patient.lastName}). ${newBalance <= 0 ? "Invoice fully paid." : `Remaining balance: ₹${newBalance.toFixed(2)}.`}`,
+    message: `Payment ${paymentNo} of PKR ${amount.toLocaleString("en-IN")} recorded for invoice ${invoice.invoiceNo} (${invoice.patient.firstName} ${invoice.patient.lastName}). ${newBalance <= 0 ? "Invoice fully paid." : `Remaining balance: PKR ${newBalance.toFixed(2)}.`}`,
   }
 }
 
@@ -600,9 +600,9 @@ export async function execShowInvoices(params: Record<string, string>, hospitalI
     invoices: invoices.map((i) => ({
       invoiceNo: i.invoiceNo,
       patient: `${i.patient.firstName} ${i.patient.lastName}`,
-      total: `₹${Number(i.totalAmount).toLocaleString("en-IN")}`,
-      paid: `₹${Number(i.paidAmount).toLocaleString("en-IN")}`,
-      balance: `₹${Number(i.balanceAmount).toLocaleString("en-IN")}`,
+      total: `PKR ${Number(i.totalAmount).toLocaleString("en-IN")}`,
+      paid: `PKR ${Number(i.paidAmount).toLocaleString("en-IN")}`,
+      balance: `PKR ${Number(i.balanceAmount).toLocaleString("en-IN")}`,
       status: i.status,
       date: i.createdAt.toISOString().split("T")[0],
     })),
@@ -619,11 +619,11 @@ export async function execCheckOverdue(hospitalId: string) {
   return {
     success: true,
     count: overdue.length,
-    totalOverdue: `₹${overdue.reduce((s, i) => s + Number(i.balanceAmount), 0).toLocaleString("en-IN")}`,
+    totalOverdue: `PKR ${overdue.reduce((s, i) => s + Number(i.balanceAmount), 0).toLocaleString("en-IN")}`,
     invoices: overdue.map((i) => ({
       invoiceNo: i.invoiceNo,
       patient: `${i.patient.firstName} ${i.patient.lastName}`,
-      balance: `₹${Number(i.balanceAmount).toLocaleString("en-IN")}`,
+      balance: `PKR ${Number(i.balanceAmount).toLocaleString("en-IN")}`,
     })),
   }
 }
@@ -650,8 +650,8 @@ export async function execShowRevenue(params: Record<string, string>, hospitalId
   return {
     success: true,
     period,
-    totalBilled: `₹${billed.toLocaleString("en-IN")}`,
-    totalCollected: `₹${collected.toLocaleString("en-IN")}`,
+    totalBilled: `PKR ${billed.toLocaleString("en-IN")}`,
+    totalCollected: `PKR ${collected.toLocaleString("en-IN")}`,
     collectionRate: billed > 0 ? `${((collected / billed) * 100).toFixed(1)}%` : "N/A",
     invoiceCount: invoices.length,
   }
@@ -1091,7 +1091,7 @@ export async function execDailySummary(hospitalId: string) {
         remaining: todayAppointments - completedToday - cancelledToday - noShowToday,
       },
       billing: {
-        todayCollected: `₹${Number(todayRevenue._sum.amount || 0).toLocaleString("en-IN")}`,
+        todayCollected: `PKR ${Number(todayRevenue._sum.amount || 0).toLocaleString("en-IN")}`,
         pendingInvoices,
         overdueInvoices,
       },
@@ -1146,7 +1146,7 @@ export async function execCheckPatient(params: Record<string, string>, hospitalI
       gender: patient.gender,
       email: patient.email,
       medicalFlags: flags,
-      outstandingBalance: `₹${patient.invoices.reduce((s, i) => s + Number(i.balanceAmount), 0).toLocaleString("en-IN")}`,
+      outstandingBalance: `PKR ${patient.invoices.reduce((s, i) => s + Number(i.balanceAmount), 0).toLocaleString("en-IN")}`,
       recentAppointments: patient.appointments.map((a) => `${a.scheduledDate.toISOString().split("T")[0]} – ${a.appointmentType} (${a.status})`),
       treatmentPlans: patient.treatmentPlans.map((tp) => `${tp.title} – ${tp.status}`),
     },

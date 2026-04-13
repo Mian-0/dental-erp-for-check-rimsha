@@ -15,7 +15,7 @@ describe('Encryption (AES-256-GCM)', () => {
     })
 
     it('handles unicode / special characters', () => {
-      const plaintext = '₹1,500 — Dr. Müller\'s notes: "tooth #12"'
+      const plaintext = 'PKR 1,500 — Dr. Müller\'s notes: "tooth #12"'
       const encrypted = encrypt(plaintext)
       expect(decrypt(encrypted)).toBe(plaintext)
     })

@@ -535,7 +535,7 @@ describe('Accessibility — WCAG 2.1 AA', () => {
             <tr>
               <td>INV-001</td>
               <td>John Doe</td>
-              <td>₹5,000</td>
+              <td>PKR 5,000</td>
               <td>Paid</td>
             </tr>
           </tbody>

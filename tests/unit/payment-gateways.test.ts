@@ -9,7 +9,7 @@ import type { CreateOrderParams, GatewayCredentials, GatewayOrder } from '@/lib/
 
 const ORDER_PARAMS: CreateOrderParams = {
   amount: 1500,
-  currency: 'INR',
+  currency: 'PKR',
   invoiceId: 'INV-2025-001',
   receipt: 'INV-2025-001',
   customerName: 'Rahul Sharma',
@@ -62,7 +62,7 @@ describe('RazorpayGateway', () => {
     it('creates an order with correct amount in paise', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => ({ id: 'order_123', currency: 'INR', status: 'created' }),
+        json: async () => ({ id: 'order_123', currency: 'PKR', status: 'created' }),
       })
 
       const gw = new RazorpayGateway(creds)
@@ -70,7 +70,7 @@ describe('RazorpayGateway', () => {
 
       expect(order.orderId).toBe('order_123')
       expect(order.amount).toBe(150000) // 1500 * 100
-      expect(order.currency).toBe('INR')
+      expect(order.currency).toBe('PKR')
       expect(order.provider).toBe('razorpay')
       expect(order.metadata?.razorpayOrderId).toBe('order_123')
     })
@@ -78,7 +78,7 @@ describe('RazorpayGateway', () => {
     it('sends correct auth header', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => ({ id: 'order_1', currency: 'INR', status: 'created' }),
+        json: async () => ({ id: 'order_1', currency: 'PKR', status: 'created' }),
       })
 
       const gw = new RazorpayGateway(creds)
@@ -93,7 +93,7 @@ describe('RazorpayGateway', () => {
     it('sends amount in paise in request body', async () => {
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => ({ id: 'o1', currency: 'INR', status: 'created' }),
+        json: async () => ({ id: 'o1', currency: 'PKR', status: 'created' }),
       })
 
       const gw = new RazorpayGateway(creds)
@@ -199,7 +199,7 @@ describe('RazorpayGateway', () => {
       const order: GatewayOrder = {
         orderId: 'order_abc',
         amount: 150000,
-        currency: 'INR',
+        currency: 'PKR',
         receipt: 'INV-001',
         provider: 'razorpay',
         status: 'created',
@@ -210,7 +210,7 @@ describe('RazorpayGateway', () => {
       expect(config.key).toBe(creds.razorpayKeyId)
       expect(config.orderId).toBe('order_abc')
       expect(config.amount).toBe(150000)
-      expect(config.currency).toBe('INR')
+      expect(config.currency).toBe('PKR')
     })
   })
 
@@ -326,7 +326,7 @@ describe('PhonePeGateway', () => {
 
       expect(order.provider).toBe('phonepe')
       expect(order.amount).toBe(150000)
-      expect(order.currency).toBe('INR')
+      expect(order.currency).toBe('PKR')
       expect(order.status).toBe('CREATED')
       expect(order.orderId).toContain('TXN_')
       expect(order.metadata?.redirectUrl).toBe('https://phonepe.com/redirect')
@@ -433,7 +433,7 @@ describe('PhonePeGateway', () => {
       const order: GatewayOrder = {
         orderId: 'TXN_001',
         amount: 150000,
-        currency: 'INR',
+        currency: 'PKR',
         receipt: 'INV-001',
         provider: 'phonepe',
         status: 'CREATED',
@@ -516,7 +516,7 @@ describe('PaytmGateway', () => {
 
       expect(order.provider).toBe('paytm')
       expect(order.amount).toBe(150000)
-      expect(order.currency).toBe('INR')
+      expect(order.currency).toBe('PKR')
       expect(order.status).toBe('CREATED')
       expect(order.orderId).toContain('ORDER_')
       expect(order.metadata?.txnToken).toBe('token_xyz')
@@ -636,7 +636,7 @@ describe('PaytmGateway', () => {
       const order: GatewayOrder = {
         orderId: 'ORDER_001',
         amount: 150000,
-        currency: 'INR',
+        currency: 'PKR',
         receipt: 'INV-001',
         provider: 'paytm',
         status: 'CREATED',

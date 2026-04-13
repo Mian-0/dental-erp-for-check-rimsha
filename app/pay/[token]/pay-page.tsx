@@ -63,7 +63,7 @@ export function PayPage({
   const formatCurrency = (val: number) =>
     new Intl.NumberFormat("en-IN", {
       style: "currency",
-      currency: "INR",
+      currency: "PKR",
       minimumFractionDigits: 0,
     }).format(val)
 
@@ -127,7 +127,7 @@ export function PayPage({
       const options = {
         key: checkout.key,
         amount: checkout.amount,
-        currency: "INR",
+        currency: "PKR",
         name: hospital.name,
         description: `Payment for ${invoice.invoiceNo}`,
         order_id: checkout.orderId,

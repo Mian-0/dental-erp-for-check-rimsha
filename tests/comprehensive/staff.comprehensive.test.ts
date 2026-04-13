@@ -442,7 +442,7 @@ describe('Staff API - Comprehensive Tests', () => {
           gender: 'FEMALE',
           alternatePhone: '9876543211',
           address: '123 Medical St',
-          city: 'Mumbai',
+          city: 'Lahore',
           state: 'Maharashtra',
           pincode: '400001',
         }),

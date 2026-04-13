@@ -47,7 +47,7 @@ test.describe('Payment Recording Workflow', () => {
       await page.goto('/billing/payments')
       await page.waitForTimeout(1000)
       await expect(
-        page.getByText(/₹|INR|amount/i).first()
+        page.getByText(/PKR |INR|amount/i).first()
           .or(page.getByText(/no.*payment|no.*data/i).first())
       ).toBeVisible({ timeout: 5000 })
     })

@@ -64,7 +64,7 @@ describe('Forms API', () => {
         phone: '0001112222',
         email: 'clinic@test.com',
         address: '123 Main St',
-        city: 'Mumbai',
+        city: 'Lahore',
         state: 'MH',
         pincode: '400001',
         logo: null,
