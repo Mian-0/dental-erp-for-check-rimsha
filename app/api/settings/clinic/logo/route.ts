@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from "next/server"
 import { requireAuthAndRole } from "@/lib/api-helpers"
 import { prisma } from "@/lib/prisma"
-import { writeFile, mkdir, unlink, readdir } from "fs/promises"
-import path from "path"
+import { v2 as cloudinary } from "cloudinary"
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+})
 
 const ALLOWED_TYPES = [
   "image/jpeg",
@@ -42,38 +47,26 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // Ensure directory exists
-    const dir = path.join(process.cwd(), "uploads", hospitalId)
-    await mkdir(dir, { recursive: true })
-
-    // Remove any previous logo file (logo.*)
-    try {
-      const files = await readdir(dir)
-      for (const f of files) {
-        if (f.startsWith("logo.")) {
-          await unlink(path.join(dir, f))
-        }
-      }
-    } catch {
-      // directory may not exist yet — that's fine
-    }
-
-    // Write new logo
-    const ext = path.extname(file.name) || mimeToExt(file.type)
-    const fileName = `logo${ext}`
-    const filePath = path.join(dir, fileName)
+    // Convert file to base64
     const bytes = await file.arrayBuffer()
-    await writeFile(filePath, Buffer.from(bytes))
+    const buffer = Buffer.from(bytes)
+    const base64 = `data:${file.type};base64,${buffer.toString("base64")}`
 
-    const logoPath = `/api/uploads/${hospitalId}/${fileName}`
-
-    // Persist in DB
-    await prisma.hospital.update({
-      where: { id: hospitalId },
-      data: { logo: logoPath },
+    // Upload to Cloudinary
+    const result = await cloudinary.uploader.upload(base64, {
+      folder: `dental-erp/${hospitalId}`,
+      public_id: "logo",
+      overwrite: true,
     })
 
-    return NextResponse.json({ success: true, logo: logoPath })
+    const logoUrl = result.secure_url
+
+    await prisma.hospital.update({
+      where: { id: hospitalId },
+      data: { logo: logoUrl },
+    })
+
+    return NextResponse.json({ success: true, logo: logoUrl })
   } catch (err: any) {
     console.error("Logo upload error:", err)
     return NextResponse.json(
@@ -89,27 +82,14 @@ export async function DELETE() {
   if (error || !hospitalId) {
     return error || NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
-
   try {
-    // Remove logo files from disk
-    const dir = path.join(process.cwd(), "uploads", hospitalId)
-    try {
-      const files = await readdir(dir)
-      for (const f of files) {
-        if (f.startsWith("logo.")) {
-          await unlink(path.join(dir, f))
-        }
-      }
-    } catch {
-      // no files to delete
-    }
+    // Delete from Cloudinary
+    await cloudinary.uploader.destroy(`dental-erp/${hospitalId}/logo`)
 
-    // Clear in DB
     await prisma.hospital.update({
       where: { id: hospitalId },
       data: { logo: null },
     })
-
     return NextResponse.json({ success: true })
   } catch (err: any) {
     console.error("Logo delete error:", err)
@@ -118,15 +98,4 @@ export async function DELETE() {
       { status: 500 }
     )
   }
-}
-
-function mimeToExt(mime: string): string {
-  const map: Record<string, string> = {
-    "image/jpeg": ".jpg",
-    "image/png": ".png",
-    "image/webp": ".webp",
-    "image/gif": ".gif",
-    "image/svg+xml": ".svg",
-  }
-  return map[mime] || ".png"
 }
