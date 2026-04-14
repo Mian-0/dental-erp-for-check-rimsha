@@ -33,7 +33,7 @@ import {
   Plus,
   Trash2,
   AlertCircle,
-  PakistannRupee,
+  IndianRupee,
   Calculator,
   FileText,
 } from "lucide-react"

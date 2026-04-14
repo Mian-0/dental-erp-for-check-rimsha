@@ -30,7 +30,7 @@ import {
   AlertTriangle,
   Edit,
   BadgeCheck,
-  PakistannRupee,
+  IndianRupee,
 } from "lucide-react"
 import { formatCurrency, formatDate } from "@/lib/billing-utils"
 

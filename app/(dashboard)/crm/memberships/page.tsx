@@ -37,7 +37,7 @@ import {
   MoreHorizontal,
   Crown,
   Users,
-  PakistannRupee,
+  IndianRupee,
   UserPlus,
   X,
   ArrowLeft,
@@ -635,7 +635,7 @@ export default function MembershipPlansPage() {
                 {/* Price & Duration */}
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1">
-                    <PakistannRupee className="h-4 w-4 text-muted-foreground" />
+                    <IndianRupee className="h-4 w-4 text-muted-foreground" />
                     <span className="text-2xl font-bold">
                       {Number(plan.price).toLocaleString("en-IN")}
                     </span>

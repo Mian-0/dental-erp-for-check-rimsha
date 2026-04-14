@@ -32,7 +32,7 @@ import {
   Calendar,
   Clock,
   AlertCircle,
-  PakistannRupee,
+  IndianRupee,
   CreditCard,
   Banknote,
 } from "lucide-react"
